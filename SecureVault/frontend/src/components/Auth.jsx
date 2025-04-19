@@ -12,7 +12,7 @@ const Auth = () => {
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
-  const { backend_url, setIsLoggedIn } = useContext(AppContent);
+  const { backend_url, setIsLoggedIn,getUserData } = useContext(AppContent);
 
   axios.defaults.withCredentials = true;
 
@@ -37,6 +37,8 @@ const Auth = () => {
       });
 
       if (data.success) {
+        setIsLoggedIn(true);
+        getUserData();
         toast.success("Registered successfully! Please login.");
         resetForm();
         setState("Sign In");
@@ -59,8 +61,9 @@ const Auth = () => {
 
       if (data.success) {
         setIsLoggedIn(true);
+        getUserData();
         toast.success("Logged in successfully!");
-        navigate("/dashboard");
+        navigate("/");
       } else {
         toast.error(data.message || "Login failed.");
       }

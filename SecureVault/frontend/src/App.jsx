@@ -8,6 +8,7 @@ import './index.css';
 import Dashboard from './components/Dashboard';
 import ResetPassword from './components/ResetPassword';
 import { ToastContainer } from 'react-toastify';
+import SettingsPage from './components/SettingPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/auth' element={<Auth />} />
         <Route path='/signup' element={<Signup />} />
+        <Route path='/settings' element={<SettingsPage />} />
         <Route path='/resetpassword' element={<ResetPassword />} />
         <Route path='/profile' element={<Profile />} />
         
